@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Adventure ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    background:linear-gradient(
+        180deg,
+        #ffd6e8,
+        #e7d6ff,
+        #dff3ff
+    );
+
+    font-family:Arial, sans-serif;
+}
+
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    color:white;
+    font-size:12px;
+    animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.2;
+    }
+    50%{
+        opacity:1;
+    }
+}
+
+.title{
+    text-align:center;
+    z-index:10;
+}
+
+.title h1{
+    color:#444;
+    margin-bottom:15px;
+}
+
+.title p{
+    color:#666;
+    font-size:18px;
+}
+
+.balloon-container{
+    margin-top:40px;
+    position:relative;
+    z-index:10;
+}
+
+.balloon{
+
+    width:140px;
+    height:170px;
+
+    background:linear-gradient(
+        145deg,
+        #ff7ab6,
+        #ff4f9a
+    );
+
+    border-radius:50%;
+
+    position:relative;
+
+    cursor:pointer;
+
+    animation:float 3s ease-in-out infinite;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.balloon:after{
+
+    content:"";
+
+    width:20px;
+    height:25px;
+
+    background:#ff4f9a;
+
+    position:absolute;
+
+    bottom:-10px;
+    left:60px;
+
+    clip-path:polygon(
+    50% 100%,
+    0 0,
+    100% 0
+    );
+}
+
+.string{
+
+    width:3px;
+    height:120px;
+
+    background:white;
+
+    margin:auto;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+.pop{
+    animation:pop .5s forwards;
+}
+
+@keyframes pop{
+
+    0%{
+        transform:scale(1);
+    }
+
+    100%{
+        transform:scale(1.6);
+        opacity:0;
+    }
+}
+
+.letter{
+
+    display:none;
+
+    position:absolute;
+
+    width:90%;
+    max-width:700px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    box-shadow:0 10px 40px rgba(0,0,0,.15);
+
+    z-index:100;
+}
+
+.letter h2{
+    margin-bottom:20px;
+    color:#ff4f9a;
+}
+
+.letter p{
+    line-height:1.8;
+    color:#444;
+}
+
+.btn{
+
+    margin-top:25px;
+
+    padding:15px 30px;
+
+    border:none;
+
+    background:#ff4f9a;
+
+    color:white;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:16px;
+}
+
+.hearts{
+    position:absolute;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    font-size:24px;
+    animation:fly 3s linear forwards;
+}
+
+@keyframes fly{
+
+    from{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+    to{
+        opacity:0;
+        transform:translateY(-300px);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="title">
+    <h1>Hey Beautiful ❤️</h1>
+
+    <p>
+        Before your birthday adventure begins...
+        <br>
+        Touch the balloon ✨
+    </p>
+</div>
+
+<div class="balloon-container">
+
+    <div class="balloon" id="balloon"></div>
+
+    <div class="string"></div>
+
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="letter" id="letter">
+
+<h2>💌 A Little Message For You</h2>
+
+<p>
+Hey Beautiful ❤️
+<br><br>
+
+Before we begin this little birthday adventure,
+I want to tell you something.
+<br><br>
+
+Thank you for bringing happiness into my life
+in ways you'll probably never realize.
+<br><br>
+
+Thank you for the smiles, the memories,
+the laughs, and even the little moments
+that seem ordinary but mean everything to me.
+<br><br>
+
+You make my days brighter,
+my heart calmer,
+and my life more beautiful.
+<br><br>
+
+This website is just a tiny surprise,
+but every page was made with thoughts of you.
+<br><br>
+
+Today is your special day,
+and for the next few minutes,
+I want you to simply enjoy this journey.
+<br><br>
+
+Happy Birthday Darling ❤️
+<br><br>
+
+<b>
+Forever Yours,
+<br>
+Sanskar ❤️
+</b>
+
+</p>
+
+<button class="btn"
+onclick="nextPage()">
+Continue Our Journey ❤️
+</button>
+
+</div>
+
+<script>
+
+for(let i=0;i<40;i++){
+
+    let star=document.createElement("div");
+
+    star.classList.add("star");
+
+    star.innerHTML="✨";
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+
+    star.style.animationDelay=
+    Math.random()*2+"s";
+
+    document.getElementById("stars")
+    .appendChild(star);
+}
+
+document.getElementById("balloon")
+.addEventListener("click",()=>{
+
+    document.getElementById("balloon")
+    .classList.add("pop");
+
+    for(let i=0;i<20;i++){
+
+        let heart=document.createElement("div");
+
+        heart.classList.add("heart");
+
+        heart.innerHTML="❤️";
+
+        heart.style.left=
+        Math.random()*100+"%";
+
+        heart.style.top=
+        Math.random()*100+"%";
+
+        document.getElementById("hearts")
+        .appendChild(heart);
+    }
+
+    setTimeout(()=>{
+
+        document.querySelector(
+        ".balloon-container"
+        ).style.display="none";
+
+        document.querySelector(
+        ".title"
+        ).style.display="none";
+
+        document.getElementById(
+        "letter"
+        ).style.display="block";
+
+    },700);
+
+});
+
+function nextPage(){
+
+    window.location.href=
+    "twenty-balloons.html";
+}
+
+</script>
+
+</body>
+</html>

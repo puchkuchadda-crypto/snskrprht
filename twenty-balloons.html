@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>20 Balloon Challenge ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    background:linear-gradient(
+    180deg,
+    #ffe0f0,
+    #e8dcff,
+    #dff4ff
+    );
+
+    font-family:Arial,sans-serif;
+
+    overflow:hidden;
+}
+
+h1{
+    margin-bottom:15px;
+    color:#444;
+}
+
+.progress-container{
+    width:80%;
+    max-width:500px;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:30px;
+}
+
+.progress-bar{
+
+    width:0%;
+
+    height:20px;
+
+    background:#ff5ea8;
+
+    transition:1s;
+}
+
+.progress-text{
+    margin-bottom:25px;
+    font-weight:bold;
+    color:#555;
+}
+
+.balloon{
+
+    width:160px;
+    height:190px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:40px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    animation:float 3s ease-in-out infinite;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.string{
+    width:3px;
+    height:120px;
+    background:white;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
+.message{
+
+    display:none;
+
+    margin-top:30px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    width:90%;
+    max-width:500px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+button{
+
+    margin-top:20px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ff5ea8;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🎈 Birthday Balloon Challenge 🎈</h1>
+
+<div class="progress-text" id="progressText">
+Balloon 1 of 20
+</div>
+
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div id="balloonArea">
+
+    <div class="balloon" id="balloon">
+        1
+    </div>
+
+    <div class="string"></div>
+
+</div>
+
+<div class="message" id="messageBox">
+
+    <h2 id="messageTitle"></h2>
+
+    <p id="messageText"></p>
+
+    <button onclick="nextBalloon()">
+        Next Balloon ✨
+    </button>
+
+</div>
+
+<script>
+
+let currentBalloon = 1;
+
+const messages = [
+
+"❤️ Welcome to your birthday adventure.",
+
+"✨ Today is all about you.",
+
+"😊 I hope you're smiling already.",
+
+"🌸 You make ordinary days feel special.",
+
+"💖 The world became brighter the day you were born.",
+
+"🥰 Someone thinks you're pretty amazing.",
+
+"🌟 Your happiness matters more than you know.",
+
+"🎂 Today you get a free pass to be spoiled.",
+
+"💌 This surprise was made with lots of thought and care.",
+
+"✨ You win the award for Most Adorable Human.",
+
+"🌷 Keep going... bigger surprises are waiting.",
+
+"❤️ Thank you for being part of my life.",
+
+"🌈 You have a way of making people feel comfortable.",
+
+"🥳 The adventure isn't over yet.",
+
+"⭐ You deserve every good thing coming your way.",
+
+"💕 I hope this year brings endless reasons to smile.",
+
+"🌸 You are more special than you realize.",
+
+"✨ Just a few more balloons left...",
+
+"💖 Get ready for something beautiful.",
+
+"🎉 Happy Birthday Darling ❤️"
+];
+
+const colors = [
+
+"#ff6fae",
+"#c084fc",
+"#60a5fa",
+"#fb7185",
+"#f59e0b",
+
+"#ff6fae",
+"#c084fc",
+"#60a5fa",
+"#fb7185",
+"#f59e0b",
+
+"#ff6fae",
+"#c084fc",
+"#60a5fa",
+"#fb7185",
+"#f59e0b",
+
+"#ff6fae",
+"#c084fc",
+"#60a5fa",
+"#fb7185",
+"#FFD700"
+];
+
+const balloon =
+document.getElementById("balloon");
+
+balloon.style.background =
+colors[0];
+
+balloon.addEventListener("click",popBalloon);
+
+function popBalloon(){
+
+    balloonArea.style.display="none";
+
+    document.getElementById(
+    "messageBox"
+    ).style.display="block";
+
+    document.getElementById(
+    "messageTitle"
+    ).innerHTML =
+    "Balloon #" + currentBalloon;
+
+    document.getElementById(
+    "messageText"
+    ).innerHTML =
+    messages[currentBalloon-1];
+}
+
+function nextBalloon(){
+
+    currentBalloon++;
+
+    if(currentBalloon > 20){
+
+        window.location.href =
+        "celebration.html";
+
+        return;
+    }
+
+    document.getElementById(
+    "messageBox"
+    ).style.display="none";
+
+    balloonArea.style.display="flex";
+    balloonArea.style.flexDirection="column";
+    balloonArea.style.alignItems="center";
+
+    balloon.innerHTML =
+    currentBalloon;
+
+    balloon.style.background =
+    colors[currentBalloon-1];
+
+    document.getElementById(
+    "progressText"
+    ).innerHTML =
+    "Balloon " + currentBalloon + " of 20";
+
+    document.getElementById(
+    "progressBar"
+    ).style.width =
+    (currentBalloon/20)*100 + "%";
+}
+
+</script>
+
+</body>
+</html>

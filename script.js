@@ -1,15 +1,17 @@
-function checkPassword(){
+function checkPassword() {
 
-    let password =
-        document.getElementById("password").value;
+    let password = document.getElementById("password").value;
 
-    if(password === "080606"){
+    if (password === "080606") {
 
         document.getElementById("message").innerHTML =
-        "❤️ Correct Password ❤️";
+        "✨ Welcome to your birthday adventure ❤️";
 
-    }
-    else{
+        setTimeout(() => {
+            window.location.href = "balloon.html";
+        }, 2000);
+
+    } else {
 
         document.getElementById("message").innerHTML =
         "🤭 Wrong Password. Hint: Your DOB ❤️";
