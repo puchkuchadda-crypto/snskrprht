@@ -6,177 +6,368 @@
 
 <title>Chapter 4 ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --rose:#b83268;
+  --wine:#5b1234;
+  --gold:#c99a45;
+  --ink:#33242b;
 }
 
 body{
-background:linear-gradient(135deg,#ffe4f0,#f8ecff,#fff9fc);
-font-family:Arial,sans-serif;
-overflow-x:hidden;
-min-height:100vh;
+  min-height:100vh;
+  overflow-x:hidden;
+  cursor:none;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(255,210,230,.85), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255,241,208,.9), transparent 35%),
+    linear-gradient(135deg,#fff7fb,#f7edf4 42%,#fffaf1);
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px);
+  background-size:56px 56px;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,.5), transparent 75%);
 }
 
 .container{
-max-width:1400px;
-margin:auto;
-padding:40px 20px;
-text-align:center;
+  width:min(1180px,92vw);
+  margin:auto;
+  padding:54px 0 70px;
+  text-align:center;
+  position:relative;
+  z-index:1;
+}
+
+.hero{
+  min-height:42vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:36px 0 28px;
+}
+
+.kicker{
+  font-size:13px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:600;
+  margin-bottom:16px;
 }
 
 h1{
-font-family:'Playfair Display',serif;
-font-size:3rem;
-color:#ff4f9a;
-margin-bottom:15px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,7vw,6.8rem);
+  line-height:.95;
+  color:var(--wine);
+  text-shadow:0 12px 35px rgba(184,50,104,.18);
+}
+
+h1 span{
+  display:block;
+  color:var(--rose);
+  font-style:italic;
 }
 
 h2{
-font-family:'Playfair Display',serif;
-color:#666;
-margin-bottom:35px;
+  max-width:650px;
+  margin:24px auto 0;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.35rem,2.4vw,2.1rem);
+  font-weight:600;
+  color:#684051;
 }
 
 .message{
-background:white;
-padding:35px;
-border-radius:25px;
-max-width:900px;
-margin:auto;
-line-height:1.9;
-font-size:18px;
-color:#555;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-margin-bottom:60px;
+  position:relative;
+  max-width:860px;
+  margin:38px auto 70px;
+  padding:42px clamp(24px,5vw,58px);
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(201,154,69,.28);
+  border-radius:22px;
+  box-shadow:
+    0 28px 80px rgba(91,18,52,.14),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  backdrop-filter:blur(18px);
+  line-height:2;
+  font-size:18px;
+  color:#5d4a53;
+}
+
+.message:before,
+.message:after{
+  content:"";
+  position:absolute;
+  width:74px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.message:before{
+  top:22px;
+}
+
+.message:after{
+  bottom:22px;
+}
+
+.message p{
+  margin-bottom:14px;
+}
+
+.message .heart{
+  margin-top:18px;
+  font-size:28px;
+  color:var(--rose);
 }
 
 .gallery{
-position:relative;
-height:1200px;
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:28px;
+  align-items:start;
+  margin-top:20px;
 }
 
 .card{
-position:absolute;
-background:white;
-padding:12px;
-border-radius:18px;
-box-shadow:0 15px 35px rgba(0,0,0,.15);
+  background:rgba(255,255,255,.84);
+  padding:13px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:
+    0 22px 55px rgba(91,18,52,.16),
+    0 2px 0 rgba(255,255,255,.9) inset;
+  backdrop-filter:blur(12px);
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.card:hover{
+  transform:translateY(-8px) rotate(0deg) scale(1.015);
+  box-shadow:0 32px 80px rgba(91,18,52,.22);
+}
+
+.card img,
+.card video{
+  display:block;
+  width:100%;
+  object-fit:cover;
+  border-radius:12px;
+  background:#eadde3;
 }
 
 .card img{
-width:340px;
-height:430px;
-object-fit:cover;
-border-radius:10px;
+  aspect-ratio:4/5;
 }
 
 .card video{
-width:320px;
-height:220px;
-border-radius:10px;
+  aspect-ratio:16/10;
 }
 
 .caption{
-margin-top:10px;
-font-size:15px;
-color:#666;
-font-style:italic;
+  padding:14px 8px 5px;
+  font-family:'Playfair Display',serif;
+  font-size:17px;
+  color:#654555;
+  font-style:italic;
 }
 
 .photo1{
-left:5%;
-top:20px;
-transform:rotate(-6deg);
+  grid-column:1 / span 4;
+  transform:rotate(-4deg);
+  margin-top:18px;
 }
 
 .photo2{
-right:5%;
-top:80px;
-transform:rotate(6deg);
+  grid-column:9 / span 4;
+  transform:rotate(4deg);
+  margin-top:70px;
 }
 
 .video1{
-left:32%;
-top:520px;
-transform:rotate(-3deg);
+  grid-column:4 / span 6;
+  transform:rotate(-2deg);
+  margin-top:-18px;
 }
 
 .video2{
-left:8%;
-top:820px;
-transform:rotate(4deg);
+  grid-column:1 / span 5;
+  transform:rotate(3deg);
+  margin-top:10px;
 }
 
 .video3{
-right:8%;
-top:820px;
-transform:rotate(-4deg);
+  grid-column:8 / span 5;
+  transform:rotate(-3deg);
+  margin-top:10px;
 }
 
 .nextBtn{
-margin-top:40px;
-padding:16px 45px;
-border:none;
-border-radius:30px;
-background:#ff4f9a;
-color:white;
-font-size:18px;
-cursor:pointer;
+  margin-top:64px;
+  padding:17px 44px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#7c183f,#c03d76 52%,#d6a24d);
+  color:white;
+  font-size:17px;
+  font-weight:600;
+  letter-spacing:.3px;
+  cursor:none;
+  box-shadow:0 18px 42px rgba(184,50,104,.28);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.nextBtn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 24px 54px rgba(184,50,104,.36);
 }
 
 .float{
-position:fixed;
-font-size:24px;
-pointer-events:none;
-animation:rise 12s linear infinite;
+  position:fixed;
+  bottom:-40px;
+  font-size:22px;
+  pointer-events:none;
+  opacity:.8;
+  animation:rise linear infinite;
+  filter:drop-shadow(0 8px 12px rgba(184,50,104,.18));
 }
 
 @keyframes rise{
-from{
-transform:translateY(100vh);
-opacity:0;
-}
-to{
-transform:translateY(-100px);
-opacity:1;
-}
-}
-
-@media(max-width:768px){
-
-.gallery{
-height:auto;
+  0%{
+    transform:translateY(0) rotate(0deg);
+    opacity:0;
+  }
+  12%{
+    opacity:.8;
+  }
+  100%{
+    transform:translateY(-115vh) rotate(22deg);
+    opacity:0;
+  }
 }
 
-.card{
-position:relative;
-left:auto;
-right:auto;
-top:auto;
-transform:none;
-margin:25px auto;
-display:block;
-width:max-content;
+/* Premium cursor */
+.cursor-dot,
+.cursor-ring{
+  position:fixed;
+  top:0;
+  left:0;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
 }
 
-.card img{
-width:85vw;
-height:auto;
+.cursor-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#d6a24d;
+  box-shadow:0 0 18px rgba(214,162,77,.95);
 }
 
-.card video{
-width:85vw;
-height:auto;
+.cursor-ring{
+  width:36px;
+  height:36px;
+  border:1px solid rgba(184,50,104,.55);
+  border-radius:50%;
+  box-shadow:0 0 24px rgba(184,50,104,.18);
 }
 
+.sparkle{
+  position:fixed;
+  pointer-events:none;
+  z-index:9998;
+  color:#d6a24d;
+  font-size:14px;
+  animation:sparkleFade .75s ease-out forwards;
+  text-shadow:0 0 12px rgba(214,162,77,.85);
 }
 
+@keyframes sparkleFade{
+  0%{
+    transform:translate(-50%,-50%) scale(.4) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translate(-50%,-90%) scale(1.45) rotate(35deg);
+    opacity:0;
+  }
+}
+
+@media(max-width:900px){
+  .gallery{
+    display:block;
+  }
+
+  .card{
+    width:min(520px,92vw);
+    margin:28px auto;
+    transform:none;
+  }
+
+  .card:hover{
+    transform:translateY(-5px);
+  }
+
+  .message{
+    margin-bottom:44px;
+  }
+}
+
+@media(max-width:520px){
+  body{
+    cursor:auto;
+  }
+
+  .cursor-dot,
+  .cursor-ring{
+    display:none;
+  }
+
+  .container{
+    padding-top:34px;
+  }
+
+  .hero{
+    min-height:34vh;
+  }
+
+  .message{
+    font-size:16px;
+    line-height:1.85;
+    border-radius:18px;
+  }
+
+  .caption{
+    font-size:15px;
+  }
+
+  .nextBtn{
+    width:100%;
+    max-width:320px;
+    cursor:pointer;
+  }
+}
 </style>
 </head>
 
@@ -184,111 +375,132 @@ height:auto;
 
 <div class="container">
 
-<h1>❤️ Chapter Four ❤️</h1>
+  <section class="hero">
+    <div class="kicker">A little dream wrapped in memories</div>
+    <h1>Chapter <span>Four</span></h1>
+    <h2>The Future I Secretly Imagine</h2>
+  </section>
 
-<h2>The Future I Secretly Imagine</h2>
+  <div class="message">
+    <p>Sometimes I wonder what future memories will look like.</p>
+    <p>Maybe more laughter. Maybe more stories. Maybe more random moments that become unforgettable.</p>
+    <p>I don't know exactly what tomorrow holds, but I do know that some people make life feel brighter simply by being part of it.</p>
+    <p>And when I imagine future birthdays, future smiles, and future adventures, I hope they are filled with the same happiness that your presence brings today.</p>
+    <div class="heart">❤️</div>
+  </div>
 
-<div class="message">
+  <div class="gallery">
 
-Sometimes I wonder what future memories will look like.
+    <div class="card photo1">
+      <img src="images/photo8.jpg" alt="A beautiful memory">
+      <div class="caption">A picture that always makes me smile ❤️</div>
+    </div>
 
-Maybe more laughter.
+    <div class="card photo2">
+      <img src="images/photo9.jpg" alt="A moment worth keeping">
+      <div class="caption">One of those moments worth keeping forever 🌸</div>
+    </div>
 
-Maybe more stories.
+    <div class="card video1">
+      <video controls>
+        <source src="videos/video6.mp4" type="video/mp4">
+      </video>
+      <div class="caption">A memory worth replaying ✨</div>
+    </div>
 
-Maybe more random moments that become unforgettable.
+    <div class="card video2">
+      <video controls>
+        <source src="videos/video7.mp4" type="video/mp4">
+      </video>
+      <div class="caption">Another beautiful moment 💖</div>
+    </div>
 
-I don't know exactly what tomorrow holds,
+    <div class="card video3">
+      <video controls>
+        <source src="videos/video8.mp4" type="video/mp4">
+      </video>
+      <div class="caption">Some smiles deserve forever ❤️</div>
+    </div>
 
-but I do know that some people make life feel a little brighter simply by being part of it.
+  </div>
 
-And when I imagine future birthdays,
-
-future smiles,
-
-future adventures,
-
-I hope they are filled with the same happiness that your presence brings today.
-
-❤️
-
-</div>
-
-<div class="gallery">
-
-<div class="card photo1">
-<img src="images/photo8.jpg">
-<div class="caption">
-A picture that always makes me smile ❤️
-</div>
-</div>
-
-<div class="card photo2">
-<img src="images/photo9.jpg">
-<div class="caption">
-One of those moments worth keeping forever 🌸
-</div>
-</div>
-
-<div class="card video1">
-<video controls>
-<source src="videos/video6.mp4" type="video/mp4">
-</video>
-<div class="caption">
-A memory worth replaying ✨
-</div>
-</div>
-
-<div class="card video2">
-<video controls>
-<source src="videos/video7.mp4" type="video/mp4">
-</video>
-<div class="caption">
-Another beautiful moment 💖
-</div>
-</div>
-
-<div class="card video3">
-<video controls>
-<source src="videos/video8.mp4" type="video/mp4">
-</video>
-<div class="caption">
-Some smiles deserve forever ❤️
-</div>
-</div>
-
-</div>
-
-<button class="nextBtn"
-onclick="location.href='chapter5.html'">
-Next Chapter ❤️
-</button>
+  <button class="nextBtn" onclick="location.href='chapter5.html'">
+    Next Chapter ❤️
+  </button>
 
 </div>
 
 <script>
+const icons = ["✨","💖","🌸","💕","🎀","🌷"];
 
-for(let i=0;i<120;i++){
-
-let item=document.createElement("div");
-
-item.className="float";
-
-const icons=["✨","💖","🌸","🦋","💕","🎀","🌷"];
-
-item.innerHTML=
-icons[Math.floor(Math.random()*icons.length)];
-
-item.style.left=
-Math.random()*100+"%";
-
-item.style.animationDuration=
-(8+Math.random()*10)+"s";
-
-document.body.appendChild(item);
-
+for(let i = 0; i < 55; i++){
+  const item = document.createElement("div");
+  item.className = "float";
+  item.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+  item.style.left = Math.random() * 100 + "%";
+  item.style.animationDuration = 10 + Math.random() * 12 + "s";
+  item.style.animationDelay = Math.random() * 8 + "s";
+  item.style.fontSize = 16 + Math.random() * 16 + "px";
+  document.body.appendChild(item);
 }
 
+const cursorDot = document.createElement("div");
+cursorDot.className = "cursor-dot";
+
+const cursorRing = document.createElement("div");
+cursorRing.className = "cursor-ring";
+
+document.body.appendChild(cursorRing);
+document.body.appendChild(cursorDot);
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let ringX = mouseX;
+let ringY = mouseY;
+let lastSparkle = 0;
+
+document.addEventListener("mousemove", function(e){
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  cursorDot.style.left = mouseX + "px";
+  cursorDot.style.top = mouseY + "px";
+
+  const now = Date.now();
+
+  if(now - lastSparkle > 45){
+    createSparkle(mouseX, mouseY);
+    lastSparkle = now;
+  }
+});
+
+function animateCursor(){
+  ringX += (mouseX - ringX) * 0.16;
+  ringY += (mouseY - ringY) * 0.16;
+
+  cursorRing.style.left = ringX + "px";
+  cursorRing.style.top = ringY + "px";
+
+  requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+function createSparkle(x, y){
+  const sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.innerHTML = Math.random() > .45 ? "✨" : "✦";
+
+  sparkle.style.left = x + (Math.random() * 24 - 12) + "px";
+  sparkle.style.top = y + (Math.random() * 24 - 12) + "px";
+  sparkle.style.fontSize = 10 + Math.random() * 10 + "px";
+
+  document.body.appendChild(sparkle);
+
+  setTimeout(function(){
+    sparkle.remove();
+  }, 800);
+}
 </script>
 
 </body>
