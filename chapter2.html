@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 2 ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:linear-gradient(135deg,#ffe4f0,#f5e8ff,#fffafc);
+font-family:'Trebuchet MS',sans-serif;
+overflow-x:hidden;
+min-height:100vh;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+text-align:center;
+}
+
+h1{
+font-size:3rem;
+color:#ff4f9a;
+margin-bottom:10px;
+}
+
+h2{
+color:#666;
+margin-bottom:30px;
+}
+
+.message{
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+max-width:850px;
+margin:0 auto 40px;
+line-height:1.8;
+font-size:18px;
+}
+
+.scrapbook{
+position:relative;
+height:800px;
+}
+
+.photo,
+.video{
+position:absolute;
+background:white;
+padding:10px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.photo img{
+width:250px;
+height:320px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.video video{
+width:280px;
+height:180px;
+border-radius:10px;
+}
+
+.p1{
+left:10%;
+top:20px;
+transform:rotate(-8deg);
+}
+
+.p2{
+right:10%;
+top:180px;
+transform:rotate(6deg);
+}
+
+.v1{
+left:20%;
+top:380px;
+transform:rotate(4deg);
+}
+
+.v2{
+right:18%;
+top:520px;
+transform:rotate(-5deg);
+}
+
+.nextBtn{
+margin:30px auto;
+padding:15px 40px;
+border:none;
+border-radius:30px;
+background:#ff4f9a;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.float{
+position:fixed;
+font-size:24px;
+animation:rise 10s linear infinite;
+pointer-events:none;
+}
+
+@keyframes rise{
+from{
+transform:translateY(100vh);
+opacity:0;
+}
+to{
+transform:translateY(-100px);
+opacity:1;
+}
+}
+
+@media(max-width:768px){
+
+.scrapbook{
+height:auto;
+}
+
+.photo,
+.video{
+position:relative;
+left:auto;
+right:auto;
+top:auto;
+margin:20px auto;
+transform:none;
+display:block;
+width:max-content;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>❤️ Chapter Two ❤️</h1>
+
+<h2>Things My Heart Notices</h2>
+
+<div class="message">
+
+You probably don't realize it,
+but there are little things about you that stay in my mind.
+
+The way you smile in photos.
+
+The way ordinary moments become memorable.
+
+The way you make people feel comfortable just by being yourself.
+
+Some things are difficult to explain.
+
+They are simply felt ❤️
+
+</div>
+
+<div class="scrapbook">
+
+<div class="photo p1">
+<img src="images/photo4.jpg">
+</div>
+
+<div class="photo p2">
+<img src="images/photo5.jpg">
+</div>
+
+<div class="video v1">
+<video controls>
+<source src="videos/video1.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="video v2">
+<video controls>
+<source src="videos/video2.mp4" type="video/mp4">
+</video>
+</div>
+
+</div>
+
+<button class="nextBtn"
+onclick="location.href='chapter3.html'">
+Next Chapter ❤️
+</button>
+
+</div>
+
+<script>
+
+for(let i=0;i<70;i++){
+
+let e=document.createElement("div");
+
+e.className="float";
+
+const items=["✨","💖","🌸","🦋"];
+
+e.innerHTML=
+items[Math.floor(Math.random()*items.length)];
+
+e.style.left=
+Math.random()*100+"%";
+
+e.style.animationDuration=
+(8+Math.random()*8)+"s";
+
+document.body.appendChild(e);
+
+}
+
+</script>
+
+</body>
+</html>
