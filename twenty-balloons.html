@@ -6,107 +6,194 @@
 
 <title>20 Balloon Challenge ❤️</title>
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
+:root{
+    --navy:#050b1f;
+    --deep:#0b1535;
+    --cyan:#54f4ff;
+    --blue:#4f8cff;
+    --lavender:#b78cff;
+    --silver:#eaf6ff;
+    --pearl:#ffffff;
+    --soft:#c9d7ff;
+}
 
+body{
     height:100vh;
+    overflow:hidden;
+    cursor:none;
 
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
 
-    background:linear-gradient(
-    180deg,
-    #ffe0f0,
-    #e8dcff,
-    #dff4ff
-    );
+    background:
+        radial-gradient(circle at 16% 16%, rgba(84,244,255,.22), transparent 32%),
+        radial-gradient(circle at 84% 20%, rgba(183,140,255,.22), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(79,140,255,.26), transparent 38%),
+        linear-gradient(135deg,#030816,#0b1535 48%,#050b1f);
 
-    font-family:Arial,sans-serif;
+    font-family:'Poppins',sans-serif;
+    color:var(--silver);
+}
 
-    overflow:hidden;
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(circle at center, black, transparent 82%);
+}
+
+body:after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.08) 42%, transparent 56%);
+    animation:scanGlow 8s ease-in-out infinite;
+}
+
+@keyframes scanGlow{
+    0%{
+        transform:translateX(-90%) skewX(-16deg);
+        opacity:0;
+    }
+
+    35%{
+        opacity:.35;
+    }
+
+    100%{
+        transform:translateX(90%) skewX(-16deg);
+        opacity:0;
+    }
 }
 
 h1{
-    margin-bottom:15px;
-    color:#444;
+    position:relative;
+    z-index:10;
+    margin-bottom:18px;
+    color:white;
+    font-family:'Playfair Display',serif;
+    font-size:clamp(2.4rem,6vw,4.8rem);
+    text-align:center;
+    text-shadow:
+        0 0 22px rgba(84,244,255,.42),
+        0 0 70px rgba(183,140,255,.22);
 }
 
 .progress-container{
+    position:relative;
+    z-index:10;
     width:80%;
-    max-width:500px;
-
-    background:white;
-
-    border-radius:20px;
-
+    max-width:520px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:999px;
     overflow:hidden;
-
     margin-bottom:30px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.18),
+        0 18px 42px rgba(0,0,0,.24);
+    backdrop-filter:blur(16px);
 }
 
 .progress-bar{
-
     width:0%;
-
     height:20px;
-
-    background:#ff5ea8;
-
+    background:linear-gradient(90deg,var(--cyan),var(--blue),var(--lavender));
     transition:1s;
+    box-shadow:0 0 28px rgba(84,244,255,.45);
 }
 
 .progress-text{
+    position:relative;
+    z-index:10;
     margin-bottom:25px;
-    font-weight:bold;
-    color:#555;
+    font-weight:700;
+    color:var(--soft);
+    letter-spacing:.6px;
+}
+
+#balloonArea{
+    position:relative;
+    z-index:10;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
 .balloon{
-
-    width:160px;
-    height:190px;
-
+    width:168px;
+    height:198px;
     border-radius:50%;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     color:white;
-
-    font-size:40px;
-    font-weight:bold;
-
-    cursor:pointer;
-
+    font-size:42px;
+    font-weight:800;
+    cursor:none;
     animation:float 3s ease-in-out infinite;
+    box-shadow:
+        0 24px 50px rgba(0,0,0,.34),
+        0 0 52px rgba(84,244,255,.24),
+        inset -18px -22px 34px rgba(0,0,0,.18);
+    position:relative;
+    overflow:hidden;
+}
 
-    box-shadow:0 15px 30px rgba(0,0,0,.15);
+.balloon:before{
+    content:"";
+    position:absolute;
+    width:48px;
+    height:70px;
+    left:32px;
+    top:26px;
+    border-radius:50%;
+    background:rgba(255,255,255,.42);
+    filter:blur(2px);
+}
+
+.balloon:after{
+    content:"";
+    position:absolute;
+    bottom:-10px;
+    left:72px;
+    width:24px;
+    height:28px;
+    background:inherit;
+    clip-path:polygon(50% 100%,0 0,100% 0);
 }
 
 .string{
     width:3px;
-    height:120px;
-    background:white;
+    height:124px;
+    background:linear-gradient(var(--silver), transparent);
+    box-shadow:0 0 12px rgba(84,244,255,.45);
 }
 
 @keyframes float{
-
     0%{
         transform:translateY(0);
     }
 
     50%{
-        transform:translateY(-20px);
+        transform:translateY(-22px);
     }
 
     100%{
@@ -115,42 +202,234 @@ h1{
 }
 
 .message{
-
     display:none;
-
+    position:relative;
+    z-index:100;
     margin-top:30px;
-
-    background:white;
-
-    padding:25px;
-
-    border-radius:20px;
-
     width:90%;
-    max-width:500px;
-
+    max-width:560px;
+    padding:1px;
+    border-radius:30px;
     text-align:center;
+    background:linear-gradient(135deg, rgba(84,244,255,.55), rgba(183,140,255,.45), rgba(255,255,255,.18));
+    box-shadow:
+        0 34px 90px rgba(0,0,0,.36),
+        0 0 95px rgba(84,244,255,.14);
+}
 
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
+.message-inner{
+    position:relative;
+    padding:34px 28px;
+    border-radius:29px;
+    background:
+        linear-gradient(135deg, rgba(6,13,34,.92), rgba(18,17,48,.84)),
+        radial-gradient(circle at top left, rgba(84,244,255,.16), transparent 44%);
+    backdrop-filter:blur(22px);
+    overflow:hidden;
+}
+
+.message-inner:before{
+    content:"";
+    position:absolute;
+    inset:16px;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,.09);
+    pointer-events:none;
+}
+
+.message-inner:after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-65%;
+    width:52%;
+    height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+    transform:skewX(-15deg);
+    animation:cardShine 7s ease-in-out infinite;
+}
+
+@keyframes cardShine{
+    0%,25%{
+        left:-65%;
+    }
+
+    70%,100%{
+        left:120%;
+    }
+}
+
+.message h2{
+    position:relative;
+    z-index:1;
+    color:white;
+    font-family:'Playfair Display',serif;
+    font-size:clamp(1.8rem,5vw,3rem);
+    margin-bottom:14px;
+    text-shadow:0 0 22px rgba(84,244,255,.42);
+}
+
+.message p{
+    position:relative;
+    z-index:1;
+    color:var(--soft);
+    line-height:1.8;
+    font-size:17px;
 }
 
 button{
-
-    margin-top:20px;
-
-    padding:12px 25px;
-
+    position:relative;
+    z-index:1;
+    margin-top:22px;
+    padding:15px 30px;
     border:none;
-
-    border-radius:12px;
-
-    background:#ff5ea8;
-
-    color:white;
-
-    cursor:pointer;
+    border-radius:999px;
+    background:linear-gradient(135deg,var(--cyan),var(--blue) 55%,var(--lavender));
+    color:#041026;
+    cursor:none;
+    font-size:16px;
+    font-weight:800;
+    overflow:hidden;
+    box-shadow:
+        0 18px 44px rgba(84,244,255,.26),
+        0 0 58px rgba(183,140,255,.18);
+    transition:transform .25s ease, box-shadow .25s ease;
 }
 
+button:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent);
+    transform:translateX(-100%);
+    transition:transform .55s ease;
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.01);
+    box-shadow:
+        0 25px 62px rgba(84,244,255,.36),
+        0 0 86px rgba(183,140,255,.24);
+}
+
+button:hover:before{
+    transform:translateX(100%);
+}
+
+.float-icon{
+    position:fixed;
+    bottom:-40px;
+    pointer-events:none;
+    z-index:1;
+    opacity:.76;
+    animation:rise linear infinite;
+    filter:
+        drop-shadow(0 0 10px rgba(84,244,255,.5))
+        drop-shadow(0 0 18px rgba(183,140,255,.18));
+}
+
+@keyframes rise{
+    0%{
+        transform:translateY(0) rotate(0deg) scale(.82);
+        opacity:0;
+    }
+
+    12%{
+        opacity:.76;
+    }
+
+    100%{
+        transform:translateY(-115vh) rotate(34deg) scale(1.18);
+        opacity:0;
+    }
+}
+
+.cursor-dot,
+.cursor-ring{
+    position:fixed;
+    top:0;
+    left:0;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+}
+
+.cursor-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:white;
+    box-shadow:
+        0 0 12px rgba(255,255,255,.9),
+        0 0 26px rgba(84,244,255,.9),
+        0 0 44px rgba(183,140,255,.55);
+}
+
+.cursor-ring{
+    width:42px;
+    height:42px;
+    border:1px solid rgba(84,244,255,.72);
+    border-radius:50%;
+    box-shadow:
+        0 0 30px rgba(84,244,255,.28),
+        inset 0 0 22px rgba(183,140,255,.08);
+    transition:
+        width .2s ease,
+        height .2s ease,
+        border-color .2s ease,
+        opacity .2s ease;
+}
+
+.cursor-ring.active{
+    width:66px;
+    height:66px;
+    border-color:rgba(183,140,255,.85);
+    opacity:.95;
+}
+
+.trail{
+    position:fixed;
+    pointer-events:none;
+    z-index:9998;
+    color:white;
+    font-size:14px;
+    animation:trailFade .85s ease-out forwards;
+    text-shadow:
+        0 0 12px rgba(84,244,255,.9),
+        0 0 24px rgba(183,140,255,.55);
+}
+
+@keyframes trailFade{
+    0%{
+        transform:translate(-50%,-50%) scale(.35) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translate(-50%,-96%) scale(1.65) rotate(50deg);
+        opacity:0;
+    }
+}
+
+@media(max-width:620px){
+    body{
+        cursor:auto;
+    }
+
+    .cursor-dot,
+    .cursor-ring{
+        display:none;
+    }
+
+    h1{
+        padding:0 18px;
+    }
+
+    button,
+    .balloon{
+        cursor:pointer;
+    }
+}
 </style>
 </head>
 
@@ -178,154 +457,194 @@ Balloon 1 of 20
 
 <div class="message" id="messageBox">
 
-    <h2 id="messageTitle"></h2>
+    <div class="message-inner">
 
-    <p id="messageText"></p>
+        <h2 id="messageTitle"></h2>
 
-    <button onclick="nextBalloon()">
-        Next Balloon ✨
-    </button>
+        <p id="messageText"></p>
+
+        <button onclick="nextBalloon()">
+            Next Balloon ✨
+        </button>
+
+    </div>
 
 </div>
 
 <script>
-
 let currentBalloon = 1;
 
 const messages = [
-
 "❤️ Welcome to your birthday adventure.",
-
 "✨ Today is all about you.",
-
 "😊 I hope you're smiling already.",
-
 "🌸 You make ordinary days feel special.",
-
 "💖 The world became brighter the day you were born.",
-
 "🥰 Someone thinks you're pretty amazing.",
-
 "🌟 Your happiness matters more than you know.",
-
 "🎂 Today you get a free pass to be spoiled.",
-
 "💌 This surprise was made with lots of thought and care.",
-
 "✨ You win the award for Most Adorable Human.",
-
 "🌷 Keep going... bigger surprises are waiting.",
-
 "❤️ Thank you for being part of my life.",
-
 "🌈 You have a way of making people feel comfortable.",
-
 "🥳 The adventure isn't over yet.",
-
 "⭐ You deserve every good thing coming your way.",
-
 "💕 I hope this year brings endless reasons to smile.",
-
 "🌸 You are more special than you realize.",
-
 "✨ Just a few more balloons left...",
-
 "💖 Get ready for something beautiful.",
-
 "🎉 Happy Birthday Darling ❤️"
 ];
 
 const colors = [
+"linear-gradient(145deg,#54f4ff,#4f8cff)",
+"linear-gradient(145deg,#b78cff,#4f8cff)",
+"linear-gradient(145deg,#7dd3fc,#54f4ff)",
+"linear-gradient(145deg,#a78bfa,#6366f1)",
+"linear-gradient(145deg,#eaf6ff,#54f4ff)",
 
-"#ff6fae",
-"#c084fc",
-"#60a5fa",
-"#fb7185",
-"#f59e0b",
+"linear-gradient(145deg,#54f4ff,#4f8cff)",
+"linear-gradient(145deg,#b78cff,#4f8cff)",
+"linear-gradient(145deg,#7dd3fc,#54f4ff)",
+"linear-gradient(145deg,#a78bfa,#6366f1)",
+"linear-gradient(145deg,#eaf6ff,#54f4ff)",
 
-"#ff6fae",
-"#c084fc",
-"#60a5fa",
-"#fb7185",
-"#f59e0b",
+"linear-gradient(145deg,#54f4ff,#4f8cff)",
+"linear-gradient(145deg,#b78cff,#4f8cff)",
+"linear-gradient(145deg,#7dd3fc,#54f4ff)",
+"linear-gradient(145deg,#a78bfa,#6366f1)",
+"linear-gradient(145deg,#eaf6ff,#54f4ff)",
 
-"#ff6fae",
-"#c084fc",
-"#60a5fa",
-"#fb7185",
-"#f59e0b",
-
-"#ff6fae",
-"#c084fc",
-"#60a5fa",
-"#fb7185",
-"#FFD700"
+"linear-gradient(145deg,#54f4ff,#4f8cff)",
+"linear-gradient(145deg,#b78cff,#4f8cff)",
+"linear-gradient(145deg,#7dd3fc,#54f4ff)",
+"linear-gradient(145deg,#a78bfa,#6366f1)",
+"linear-gradient(145deg,#ffffff,#b78cff,#54f4ff)"
 ];
 
-const balloon =
-document.getElementById("balloon");
+const balloon = document.getElementById("balloon");
+const balloonArea = document.getElementById("balloonArea");
 
-balloon.style.background =
-colors[0];
-
+balloon.style.background = colors[0];
 balloon.addEventListener("click",popBalloon);
 
 function popBalloon(){
-
     balloonArea.style.display="none";
 
-    document.getElementById(
-    "messageBox"
-    ).style.display="block";
+    document.getElementById("messageBox").style.display="block";
 
-    document.getElementById(
-    "messageTitle"
-    ).innerHTML =
+    document.getElementById("messageTitle").innerHTML =
     "Balloon #" + currentBalloon;
 
-    document.getElementById(
-    "messageText"
-    ).innerHTML =
+    document.getElementById("messageText").innerHTML =
     messages[currentBalloon-1];
 }
 
 function nextBalloon(){
-
     currentBalloon++;
 
     if(currentBalloon > 20){
-
-        window.location.href =
-        "celebration.html";
-
+        window.location.href = "celebration.html";
         return;
     }
 
-    document.getElementById(
-    "messageBox"
-    ).style.display="none";
+    document.getElementById("messageBox").style.display="none";
 
     balloonArea.style.display="flex";
     balloonArea.style.flexDirection="column";
     balloonArea.style.alignItems="center";
 
-    balloon.innerHTML =
-    currentBalloon;
+    balloon.innerHTML = currentBalloon;
+    balloon.style.background = colors[currentBalloon-1];
 
-    balloon.style.background =
-    colors[currentBalloon-1];
-
-    document.getElementById(
-    "progressText"
-    ).innerHTML =
+    document.getElementById("progressText").innerHTML =
     "Balloon " + currentBalloon + " of 20";
 
-    document.getElementById(
-    "progressBar"
-    ).style.width =
+    document.getElementById("progressBar").style.width =
     (currentBalloon/20)*100 + "%";
 }
 
+const floatingIcons = ["✨","💙","🫧","🌙","💎","✦","🤍"];
+
+for(let i = 0; i < 58; i++){
+    const item = document.createElement("div");
+    item.className = "float-icon";
+    item.innerHTML = floatingIcons[Math.floor(Math.random() * floatingIcons.length)];
+    item.style.left = Math.random() * 100 + "%";
+    item.style.animationDuration = 10 + Math.random() * 12 + "s";
+    item.style.animationDelay = Math.random() * 8 + "s";
+    item.style.fontSize = 14 + Math.random() * 18 + "px";
+    document.body.appendChild(item);
+}
+
+const cursorDot = document.createElement("div");
+cursorDot.className = "cursor-dot";
+
+const cursorRing = document.createElement("div");
+cursorRing.className = "cursor-ring";
+
+document.body.appendChild(cursorRing);
+document.body.appendChild(cursorDot);
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let ringX = mouseX;
+let ringY = mouseY;
+let lastTrail = 0;
+
+document.addEventListener("mousemove", function(e){
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    cursorDot.style.left = mouseX + "px";
+    cursorDot.style.top = mouseY + "px";
+
+    const now = Date.now();
+
+    if(now - lastTrail > 42){
+        createTrail(mouseX, mouseY);
+        lastTrail = now;
+    }
+});
+
+document.querySelectorAll("button, .balloon").forEach(function(element){
+    element.addEventListener("mouseenter", function(){
+        cursorRing.classList.add("active");
+    });
+
+    element.addEventListener("mouseleave", function(){
+        cursorRing.classList.remove("active");
+    });
+});
+
+function animateCursor(){
+    ringX += (mouseX - ringX) * .14;
+    ringY += (mouseY - ringY) * .14;
+
+    cursorRing.style.left = ringX + "px";
+    cursorRing.style.top = ringY + "px";
+
+    requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+function createTrail(x, y){
+    const trail = document.createElement("div");
+    trail.className = "trail";
+    trail.innerHTML = Math.random() > .5 ? "✦" : "✨";
+
+    trail.style.left = x + (Math.random() * 28 - 14) + "px";
+    trail.style.top = y + (Math.random() * 28 - 14) + "px";
+    trail.style.fontSize = 9 + Math.random() * 12 + "px";
+
+    document.body.appendChild(trail);
+
+    setTimeout(function(){
+        trail.remove();
+    }, 900);
+}
 </script>
 
 </body>
