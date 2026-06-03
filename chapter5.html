@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 5 ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:linear-gradient(135deg,#ffe8f4,#f8ecff,#fffafc);
+font-family:Arial,sans-serif;
+overflow-x:hidden;
+min-height:100vh;
+}
+
+.container{
+max-width:1400px;
+margin:auto;
+padding:40px 20px;
+text-align:center;
+}
+
+h1{
+font-family:'Playfair Display',serif;
+font-size:3rem;
+color:#ff4f9a;
+margin-bottom:15px;
+}
+
+h2{
+font-family:'Playfair Display',serif;
+color:#666;
+margin-bottom:35px;
+}
+
+.message{
+background:white;
+padding:35px;
+border-radius:25px;
+max-width:900px;
+margin:auto;
+line-height:1.9;
+font-size:18px;
+color:#555;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+margin-bottom:60px;
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+}
+
+.video-card{
+background:white;
+padding:12px;
+border-radius:18px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.video-card video{
+width:360px;
+height:240px;
+border-radius:10px;
+}
+
+.caption{
+margin-top:10px;
+font-style:italic;
+color:#666;
+}
+
+.nextBtn{
+margin-top:50px;
+padding:16px 45px;
+border:none;
+border-radius:30px;
+background:#ff4f9a;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.float{
+position:fixed;
+font-size:24px;
+pointer-events:none;
+animation:rise 12s linear infinite;
+}
+
+@keyframes rise{
+
+from{
+transform:translateY(100vh);
+opacity:0;
+}
+
+to{
+transform:translateY(-100px);
+opacity:1;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ Chapter Five ❤️</h1>
+
+<h2>If You Ever Wonder</h2>
+
+<div class="message">
+
+If you ever wonder why you are important,
+
+why your photos make me smile,
+
+why your memories stay longer than they should,
+
+or why I spent so much time making this website...
+
+the answer is simple.
+
+Some people leave a mark on our hearts without even trying.
+
+You are one of those people.
+
+And every chapter before this one was simply my way of saying:
+
+Thank You ❤️
+
+</div>
+
+<div class="gallery">
+
+<div class="video-card">
+<video controls>
+<source src="videos/video9.mp4" type="video/mp4">
+</video>
+<div class="caption">A memory worth keeping ❤️</div>
+</div>
+
+<div class="video-card">
+<video controls>
+<source src="videos/video10.mp4" type="video/mp4">
+</video>
+<div class="caption">A moment worth replaying ✨</div>
+</div>
+
+<div class="video-card">
+<video controls>
+<source src="videos/video11.mp4" type="video/mp4">
+</video>
+<div class="caption">One last smile before the letter 💖</div>
+</div>
+
+</div>
+
+<button class="nextBtn"
+onclick="location.href='letter.html'">
+Read My Letter ❤️
+</button>
+
+</div>
+
+<script>
+
+for(let i=0;i<120;i++){
+
+let item=document.createElement("div");
+
+item.className="float";
+
+const icons=["✨","💖","🌸","🦋","💕","🎀","🌷"];
+
+item.innerHTML=
+icons[Math.floor(Math.random()*icons.length)];
+
+item.style.left=
+Math.random()*100+"%";
+
+item.style.animationDuration=
+(8+Math.random()*10)+"s";
+
+document.body.appendChild(item);
+
+}
+
+</script>
+
+</body>
+</html>
