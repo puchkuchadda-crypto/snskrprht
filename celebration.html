@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:linear-gradient(
+    180deg,
+    #ffd9ec,
+    #efe0ff,
+    #ffffff
+    );
+
+    font-family:Arial,sans-serif;
+
+    overflow-x:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+
+    max-width:900px;
+
+    text-align:center;
+
+    padding:50px 25px;
+
+    position:relative;
+
+    z-index:10;
+}
+
+h1{
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+    color:#ff4f9a;
+}
+
+.message{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+    line-height:1.9;
+
+    color:#444;
+
+    font-size:18px;
+}
+
+.heart-btn{
+
+    margin-top:40px;
+
+    font-size:70px;
+
+    cursor:pointer;
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+.next-text{
+
+    margin-top:10px;
+
+    color:#666;
+
+    font-size:18px;
+}
+
+.sparkle{
+
+    position:absolute;
+
+    font-size:18px;
+
+    animation:float 8s linear infinite;
+
+    opacity:.8;
+}
+
+@keyframes float{
+
+    from{
+        transform:translateY(100vh);
+    }
+
+    to{
+        transform:translateY(-100px);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="sparkles"></div>
+
+<div class="container">
+
+<h1>
+🎉 HAPPY BIRTHDAY ❤️
+</h1>
+
+<div class="message">
+
+<p>
+
+Today is your day, and before anything else,
+I just want to say thank you.
+<br><br>
+
+Thank you for all the smiles you've unknowingly given me,
+for the moments that made my days brighter,
+and for simply being the wonderful person that you are.
+<br><br>
+
+Life gives us countless people to meet,
+but every once in a while,
+it introduces us to someone who leaves
+a special mark on our heart.
+<br><br>
+
+You are that person for me ❤️
+<br><br>
+
+I know this little website can never fully express
+how much appreciation, care, and affection I have for you,
+but I hope it reminds you of one thing:
+<br><br>
+
+<b>You are loved.</b>
+<br><br>
+
+Not because of what you do,
+not because of what you have,
+but simply because of who you are.
+<br><br>
+
+Today I wish you endless happiness,
+beautiful memories,
+success in everything you dream of,
+and a heart that always finds reasons to smile.
+<br><br>
+
+And for the next few moments,
+I want you to enjoy this little journey
+I created especially for you ❤️
+<br><br>
+
+<b>
+Forever Yours,
+<br>
+Sanskar ❤️
+</b>
+
+</p>
+
+</div>
+
+<div class="heart-btn"
+onclick="goToBook()">
+❤️
+</div>
+
+<div class="next-text">
+There's still something I want to show you...
+</div>
+
+</div>
+
+<script>
+
+for(let i=0;i<40;i++){
+
+let sparkle=document.createElement("div");
+
+sparkle.classList.add("sparkle");
+
+sparkle.innerHTML=
+["✨","🌸","💖"][Math.floor(Math.random()*3)];
+
+sparkle.style.left=
+Math.random()*100+"%";
+
+sparkle.style.animationDuration=
+(6+Math.random()*6)+"s";
+
+document.getElementById("sparkles")
+.appendChild(sparkle);
+}
+
+function goToBook(){
+
+window.location.href="book.html";
+
+}
+
+</script>
+
+</body>
+</html>
