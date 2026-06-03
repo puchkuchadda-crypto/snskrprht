@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 1 ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#ffd6ea,#f8e7ff,#fff7fb);
+font-family:'Trebuchet MS',sans-serif;
+overflow:hidden;
+position:relative;
+}
+
+.chapter{
+
+max-width:1100px;
+margin:auto;
+
+padding:50px 20px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+
+.title{
+
+font-size:3rem;
+color:#ff4f9a;
+
+margin-top:30px;
+margin-bottom:20px;
+
+text-shadow:0 0 15px rgba(255,79,154,.4);
+}
+
+.message{
+
+background:white;
+
+padding:30px;
+
+border-radius:25px;
+
+max-width:800px;
+
+line-height:1.9;
+
+font-size:18px;
+
+color:#555;
+
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+margin-bottom:40px;
+}
+
+.polaroids{
+
+position:relative;
+
+width:100%;
+height:380px;
+}
+
+.polaroids img{
+
+position:absolute;
+
+width:220px;
+
+height:300px;
+
+object-fit:cover;
+
+padding:10px;
+
+background:white;
+
+border-radius:10px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+transition:.4s;
+}
+
+.polaroids img:hover{
+transform:scale(1.05);
+}
+
+.photo1{
+left:15%;
+top:30px;
+transform:rotate(-10deg);
+}
+
+.photo2{
+left:40%;
+top:0;
+transform:rotate(6deg);
+}
+
+.photo3{
+left:65%;
+top:40px;
+transform:rotate(-5deg);
+}
+
+.nextBtn{
+
+margin-top:20px;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff4f9a;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+}
+
+.floating{
+
+position:absolute;
+font-size:24px;
+animation:float 12s linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+
+from{
+transform:translateY(100vh);
+opacity:0;
+}
+
+to{
+transform:translateY(-120px);
+opacity:1;
+}
+
+}
+
+@media(max-width:768px){
+
+.title{
+font-size:2rem;
+}
+
+.polaroids{
+height:850px;
+}
+
+.polaroids img{
+
+position:relative;
+
+display:block;
+
+width:80%;
+
+height:auto;
+
+margin:20px auto;
+
+left:auto;
+top:auto;
+transform:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<audio controls>
+<source src="Audio/song1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="chapter">
+
+<h1 class="title">
+The Day You Became Important ❤️
+</h1>
+
+<div class="message">
+
+Some people enter our lives quietly.
+
+No big announcement.
+
+No warning.
+
+Just a simple conversation,
+a simple moment,
+a simple beginning.
+
+And somehow, before we realize it,
+they become a part of our thoughts,
+our smiles,
+and our happiest memories.
+
+You became one of those people for me.
+
+And today,
+I just want you to know that
+you are appreciated more than you realize ❤️
+
+</div>
+
+<div class="polaroids">
+
+<img src="images/photo1.jpg" class="photo1">
+
+<img src="images/photo2.jpg" class="photo2">
+
+<img src="images/photo3.jpg" class="photo3">
+
+</div>
+
+<button class="nextBtn"
+onclick="location.href='chapter2.html'">
+
+Next Chapter ❤️
+
+</button>
+
+</div>
+
+<script>
+
+for(let i=0;i<60;i++){
+
+const item=document.createElement("div");
+
+item.className="floating";
+
+const emojis=["✨","💖","🌸","🦋"];
+
+item.innerHTML=
+emojis[Math.floor(Math.random()*emojis.length)];
+
+item.style.left=
+Math.random()*100+"%";
+
+item.style.animationDuration=
+(8+Math.random()*8)+"s";
+
+document.body.appendChild(item);
+
+}
+
+</script>
+
+</body>
+</html>
