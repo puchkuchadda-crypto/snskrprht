@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Chapter 1 ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -38,34 +39,45 @@ text-align:center;
 
 .title{
 
-font-size:3rem;
+font-family:'Great Vibes',cursive;
+
+font-size:5rem;
+
 color:#ff4f9a;
 
-margin-top:30px;
-margin-bottom:20px;
+margin-top:20px;
+margin-bottom:25px;
 
-text-shadow:0 0 15px rgba(255,79,154,.4);
+text-shadow:
+0 0 20px rgba(255,79,154,.4);
+
 }
 
 .message{
 
-background:white;
+background:rgba(255,255,255,.8);
 
-padding:30px;
+backdrop-filter:blur(15px);
 
-border-radius:25px;
+padding:40px;
 
-max-width:800px;
+border-radius:35px;
 
-line-height:1.9;
+max-width:850px;
 
-font-size:18px;
+line-height:2;
+
+font-size:19px;
 
 color:#555;
 
-box-shadow:0 10px 30px rgba(0,0,0,.1);
+box-shadow:
+0 20px 60px rgba(255,105,180,.18);
 
-margin-bottom:40px;
+margin-bottom:50px;
+
+border:2px solid rgba(255,255,255,.5);
+
 }
 
 .polaroids{
@@ -121,21 +133,42 @@ transform:rotate(-5deg);
 
 .nextBtn{
 
-margin-top:20px;
+margin-top:30px;
 
-padding:15px 40px;
+padding:18px 50px;
 
 border:none;
 
-border-radius:30px;
+border-radius:50px;
 
-background:#ff4f9a;
+background:
+linear-gradient(
+135deg,
+#ff6db0,
+#ff4f9a
+);
 
 color:white;
 
-font-size:18px;
+font-size:20px;
+
+font-weight:600;
 
 cursor:pointer;
+
+box-shadow:
+0 15px 35px rgba(255,79,154,.35);
+
+transition:.4s;
+}
+
+.nextBtn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 20px 45px rgba(255,79,154,.5);
+
 }
 
 .floating{
@@ -189,10 +222,48 @@ transform:none;
 
 }
 
+.corner{
+
+position:fixed;
+
+font-size:70px;
+
+z-index:2;
+
+opacity:.85;
+
+pointer-events:none;
+}
+
+.tl{
+top:20px;
+left:20px;
+}
+
+.tr{
+top:20px;
+right:20px;
+}
+
+.bl{
+bottom:20px;
+left:20px;
+}
+
+.br{
+bottom:20px;
+right:20px;
+}
+
 </style>
 </head>
 
 <body>
+
+<div class="corner tl">🧸</div>
+<div class="corner tr">🎀</div>
+<div class="corner bl">🌸</div>
+<div class="corner br">🦋</div>
 
 
 <div class="chapter">
