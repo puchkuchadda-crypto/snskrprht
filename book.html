@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>100 Reasons ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:linear-gradient(
+135deg,
+#ffd6ea,
+#f2e2ff,
+#fff8fc
+);
+
+font-family:'Trebuchet MS',sans-serif;
+
+overflow:hidden;
+}
+
+.sparkle{
+
+position:absolute;
+
+font-size:20px;
+
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+
+from{
+transform:translateY(100vh);
+opacity:0;
+}
+
+to{
+transform:translateY(-100px);
+opacity:1;
+}
+
+}
+
+.book-cover{
+
+width:90%;
+max-width:700px;
+
+background:white;
+
+padding:50px;
+
+border-radius:30px;
+
+text-align:center;
+
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+z-index:10;
+}
+
+.book-cover h1{
+
+color:#ff4f9a;
+
+font-size:2.8rem;
+
+margin-bottom:25px;
+}
+
+.book-cover p{
+
+font-size:1.2rem;
+
+line-height:1.8;
+
+color:#555;
+
+margin-bottom:30px;
+}
+
+.open-btn{
+
+padding:16px 40px;
+
+border:none;
+
+border-radius:30px;
+
+background:#ff4f9a;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="sparkles"></div>
+
+<div class="book-cover">
+
+<h1>
+📖 100 Reasons Why You Are Special ❤️
+</h1>
+
+<p>
+
+Every page of this little book contains
+a small piece of what I admire about you.
+
+<br><br>
+
+Some pages contain reasons.
+
+Some contain memories.
+
+Some contain moments that made me smile.
+
+And all of them were made especially for you ❤️
+
+<br><br>
+
+Forever Yours,
+
+<br>
+
+Sanskar ❤️
+
+</p>
+
+<button class="open-btn"
+onclick="openBook()">
+
+Open The Book ❤️
+
+</button>
+
+</div>
+
+<script>
+
+for(let i=0;i<50;i++){
+
+let sparkle=document.createElement("div");
+
+sparkle.classList.add("sparkle");
+
+sparkle.innerHTML=
+["✨","💖","🌸"][Math.floor(Math.random()*3)];
+
+sparkle.style.left=
+Math.random()*100+"%";
+
+sparkle.style.animationDuration=
+(6+Math.random()*6)+"s";
+
+document.body.appendChild(sparkle);
+
+}
+
+function openBook(){
+
+alert("Next page will contain Reasons 1-10 ❤️");
+
+}
+
+</script>
+
+</body>
+</html>
