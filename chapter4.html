@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 4 ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:linear-gradient(135deg,#ffe4f0,#f8ecff,#fff9fc);
+font-family:Arial,sans-serif;
+overflow-x:hidden;
+min-height:100vh;
+}
+
+.container{
+max-width:1400px;
+margin:auto;
+padding:40px 20px;
+text-align:center;
+}
+
+h1{
+font-family:'Playfair Display',serif;
+font-size:3rem;
+color:#ff4f9a;
+margin-bottom:15px;
+}
+
+h2{
+font-family:'Playfair Display',serif;
+color:#666;
+margin-bottom:35px;
+}
+
+.message{
+background:white;
+padding:35px;
+border-radius:25px;
+max-width:900px;
+margin:auto;
+line-height:1.9;
+font-size:18px;
+color:#555;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+margin-bottom:60px;
+}
+
+.gallery{
+position:relative;
+height:1200px;
+}
+
+.card{
+position:absolute;
+background:white;
+padding:12px;
+border-radius:18px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.card img{
+width:340px;
+height:430px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.card video{
+width:320px;
+height:220px;
+border-radius:10px;
+}
+
+.caption{
+margin-top:10px;
+font-size:15px;
+color:#666;
+font-style:italic;
+}
+
+.photo1{
+left:5%;
+top:20px;
+transform:rotate(-6deg);
+}
+
+.photo2{
+right:5%;
+top:80px;
+transform:rotate(6deg);
+}
+
+.video1{
+left:32%;
+top:520px;
+transform:rotate(-3deg);
+}
+
+.video2{
+left:8%;
+top:820px;
+transform:rotate(4deg);
+}
+
+.video3{
+right:8%;
+top:820px;
+transform:rotate(-4deg);
+}
+
+.nextBtn{
+margin-top:40px;
+padding:16px 45px;
+border:none;
+border-radius:30px;
+background:#ff4f9a;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.float{
+position:fixed;
+font-size:24px;
+pointer-events:none;
+animation:rise 12s linear infinite;
+}
+
+@keyframes rise{
+from{
+transform:translateY(100vh);
+opacity:0;
+}
+to{
+transform:translateY(-100px);
+opacity:1;
+}
+}
+
+@media(max-width:768px){
+
+.gallery{
+height:auto;
+}
+
+.card{
+position:relative;
+left:auto;
+right:auto;
+top:auto;
+transform:none;
+margin:25px auto;
+display:block;
+width:max-content;
+}
+
+.card img{
+width:85vw;
+height:auto;
+}
+
+.card video{
+width:85vw;
+height:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ Chapter Four ❤️</h1>
+
+<h2>The Future I Secretly Imagine</h2>
+
+<div class="message">
+
+Sometimes I wonder what future memories will look like.
+
+Maybe more laughter.
+
+Maybe more stories.
+
+Maybe more random moments that become unforgettable.
+
+I don't know exactly what tomorrow holds,
+
+but I do know that some people make life feel a little brighter simply by being part of it.
+
+And when I imagine future birthdays,
+
+future smiles,
+
+future adventures,
+
+I hope they are filled with the same happiness that your presence brings today.
+
+❤️
+
+</div>
+
+<div class="gallery">
+
+<div class="card photo1">
+<img src="images/photo8.jpg">
+<div class="caption">
+A picture that always makes me smile ❤️
+</div>
+</div>
+
+<div class="card photo2">
+<img src="images/photo9.jpg">
+<div class="caption">
+One of those moments worth keeping forever 🌸
+</div>
+</div>
+
+<div class="card video1">
+<video controls>
+<source src="videos/video6.mp4" type="video/mp4">
+</video>
+<div class="caption">
+A memory worth replaying ✨
+</div>
+</div>
+
+<div class="card video2">
+<video controls>
+<source src="videos/video7.mp4" type="video/mp4">
+</video>
+<div class="caption">
+Another beautiful moment 💖
+</div>
+</div>
+
+<div class="card video3">
+<video controls>
+<source src="videos/video8.mp4" type="video/mp4">
+</video>
+<div class="caption">
+Some smiles deserve forever ❤️
+</div>
+</div>
+
+</div>
+
+<button class="nextBtn"
+onclick="location.href='chapter5.html'">
+Next Chapter ❤️
+</button>
+
+</div>
+
+<script>
+
+for(let i=0;i<120;i++){
+
+let item=document.createElement("div");
+
+item.className="float";
+
+const icons=["✨","💖","🌸","🦋","💕","🎀","🌷"];
+
+item.innerHTML=
+icons[Math.floor(Math.random()*icons.length)];
+
+item.style.left=
+Math.random()*100+"%";
+
+item.style.animationDuration=
+(8+Math.random()*10)+"s";
+
+document.body.appendChild(item);
+
+}
+
+</script>
+
+</body>
+</html>
