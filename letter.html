@@ -1,229 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>My Letter ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-
-min-height:100vh;
-
-background:linear-gradient(
-135deg,
-#ffe6f2,
-#f6eaff,
-#fff9fd
-);
-
-font-family:Arial,sans-serif;
-
-overflow-x:hidden;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-padding:40px;
+:root {
+  --pink: #ff4f9a;
+  --rose: #ff7ab8;
+  --violet: #9b5cff;
+  --gold: #ffd166;
+  --text: #4b3f50;
+  --glass: rgba(255, 255, 255, 0.72);
 }
 
-.letter{
-
-max-width:900px;
-
-background:white;
-
-padding:50px;
-
-border-radius:30px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.12);
-
-position:relative;
-
-z-index:2;
+body {
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 56px 18px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 122, 184, 0.38), transparent 30%),
+    radial-gradient(circle at 86% 12%, rgba(155, 92, 255, 0.28), transparent 28%),
+    radial-gradient(circle at 50% 90%, rgba(255, 209, 102, 0.22), transparent 30%),
+    linear-gradient(135deg, #fff1f8, #f5ecff 45%, #fffaf0);
 }
 
-h1{
-
-font-family:'Playfair Display',serif;
-
-text-align:center;
-
-color:#ff4f9a;
-
-margin-bottom:35px;
-
-font-size:3rem;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.35) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle, black, transparent 78%);
 }
 
-.content{
-
-line-height:2;
-
-font-size:19px;
-
-color:#555;
+.aurora {
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  background:
+    conic-gradient(from 120deg, transparent, rgba(255, 79, 154, 0.18), transparent, rgba(155, 92, 255, 0.16), transparent);
+  filter: blur(55px);
+  animation: auroraMove 18s ease-in-out infinite alternate;
 }
 
-.signature{
-
-margin-top:40px;
-
-font-size:22px;
-
-color:#ff4f9a;
-
-font-weight:bold;
+@keyframes auroraMove {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(18deg) scale(1.12); }
 }
 
-.nextBtn{
-
-margin-top:40px;
-
-padding:16px 45px;
-
-border:none;
-
-border-radius:30px;
-
-background:#ff4f9a;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
+.letter {
+  width: min(940px, 100%);
+  position: relative;
+  z-index: 2;
+  padding: 58px clamp(24px, 6vw, 68px);
+  border-radius: 28px;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 30px 90px rgba(141, 64, 121, 0.2),
+    inset 0 0 45px rgba(255, 255, 255, 0.56);
+  backdrop-filter: blur(22px);
+  overflow: hidden;
 }
 
-.float{
-
-position:fixed;
-
-font-size:24px;
-
-pointer-events:none;
-
-animation:rise 12s linear infinite;
+.letter::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 122, 184, 0.28);
+  pointer-events: none;
 }
 
-@keyframes rise{
-
-from{
-transform:translateY(100vh);
-opacity:0;
+.letter::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: -100px;
+  right: -80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.85), rgba(255,122,184,0.18), transparent 68%);
+  pointer-events: none;
 }
 
-to{
-transform:translateY(-100px);
-opacity:1;
+.badge {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto 18px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  color: #8a3567;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(255, 122, 184, 0.28);
 }
 
+h1 {
+  font-family: "Great Vibes", cursive;
+  text-align: center;
+  color: var(--pink);
+  margin-bottom: 30px;
+  font-size: clamp(3.4rem, 9vw, 6.2rem);
+  line-height: 0.95;
+  font-weight: 400;
+  text-shadow:
+    0 0 18px rgba(255, 79, 154, 0.28),
+    0 8px 24px rgba(255, 79, 154, 0.18);
 }
 
+.divider {
+  width: min(360px, 76%);
+  height: 1px;
+  margin: 0 auto 34px;
+  background: linear-gradient(90deg, transparent, var(--rose), var(--gold), var(--violet), transparent);
+  position: relative;
+}
+
+.divider::after {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--pink);
+  background: rgba(255, 249, 253, 0.95);
+  padding: 0 12px;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  line-height: 2.05;
+  font-size: clamp(16px, 2.4vw, 19px);
+  color: #55485a;
+}
+
+.content p {
+  margin-bottom: 22px;
+}
+
+.content strong {
+  color: #e93688;
+  font-weight: 700;
+}
+
+.wish {
+  margin: 32px 0;
+  padding: 24px;
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.78), rgba(255,241,248,0.72)),
+    radial-gradient(circle at top left, rgba(255, 209, 102, 0.28), transparent 45%);
+  border: 1px solid rgba(255, 122, 184, 0.24);
+  box-shadow: inset 0 0 28px rgba(255,255,255,0.62);
+  text-align: center;
+}
+
+.signature {
+  margin-top: 42px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(22px, 4vw, 30px);
+  color: #e93688;
+  font-weight: 700;
+}
+
+.nextBtn {
+  margin-top: 38px;
+  padding: 17px 34px;
+  min-height: 56px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff4f9a, #9b5cff);
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 16px 34px rgba(255, 79, 154, 0.34),
+    0 0 22px rgba(155, 92, 255, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nextBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 22px 45px rgba(255, 79, 154, 0.42),
+    0 0 30px rgba(155, 92, 255, 0.32);
+}
+
+.float {
+  position: fixed;
+  left: 0;
+  bottom: -80px;
+  pointer-events: none;
+  z-index: 1;
+  animation: rise linear infinite;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.9));
+}
+
+.butterfly {
+  position: fixed;
+  z-index: 3;
+  pointer-events: none;
+  font-size: 28px;
+  animation: butterflyFly ease-in-out infinite;
+  filter: drop-shadow(0 8px 12px rgba(155, 92, 255, 0.22));
+}
+
+.heart-glow {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: rgba(255, 79, 154, 0.45);
+  box-shadow: 0 0 22px rgba(255, 79, 154, 0.9);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes rise {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.75);
+    opacity: 0;
+  }
+  12% { opacity: 1; }
+  100% {
+    transform: translate3d(var(--drift), -115vh, 0) rotate(360deg) scale(1.18);
+    opacity: 0;
+  }
+}
+
+@keyframes butterflyFly {
+  0% {
+    transform: translate(-10vw, 90vh) rotate(-12deg);
+    opacity: 0;
+  }
+  15% { opacity: 1; }
+  50% {
+    transform: translate(50vw, 38vh) rotate(16deg);
+  }
+  100% {
+    transform: translate(110vw, 8vh) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.8);
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 24px 12px;
+    align-items: flex-start;
+  }
+
+  .letter {
+    padding: 38px 22px;
+    border-radius: 22px;
+  }
+
+  .content {
+    line-height: 1.85;
+  }
+
+  .wish {
+    padding: 18px;
+  }
+
+  .nextBtn {
+    width: 100%;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<div class="letter">
+<div class="aurora"></div>
 
-<h1>❤️ A Letter For You ❤️</h1>
+<main class="letter">
+  <div class="badge">A tiny universe made with love</div>
 
-<div class="content">
+  <h1>A Letter For You</h1>
 
-🎂 Happy Birthday ❤️✨
+  <div class="divider"></div>
 
-Today is all about celebrating **you**. 🥳 Not just your birthday, but the happiness you bring, the smiles you create 😊, and the beautiful memories you leave behind wherever you go. 💖
+  <div class="content">
+    <p>🎂 Happy Birthday ❤️✨</p>
 
-While making this little website, I realized something... 💭 The most beautiful part wasn't the balloons 🎈. It wasn't the photos 📸. It wasn't the videos 🎥. It was remembering all the moments that made me smile because of you. ❤️
+    <p>Today is all about celebrating <strong>you</strong>. 🥳 Not just your birthday, but the happiness you bring, the smiles you create 😊, and the beautiful memories you leave behind wherever you go. 💖</p>
 
-Some people enter our lives and quietly become important. 🌷 Without trying. Without asking. Without even realizing it. And you are one of those people. ✨
+    <p>While making this little website, I realized something... 💭 The most beautiful part wasn't the balloons 🎈. It wasn't the photos 📸. It wasn't the videos 🎥. It was remembering all the moments that made me smile because of you. ❤️</p>
 
-Thank you for every smile 😊, every conversation 💬, every laugh 😂, every memory 📖, and every little moment that made life feel brighter ☀️. Thank you for being yourself, because the person you are is already more special than you probably know. 💕
+    <p>Some people enter our lives and quietly become important. 🌷 Without trying. Without asking. Without even realizing it. And you are one of those people. ✨</p>
 
-You have this beautiful way of making ordinary moments feel meaningful. 🌸 A simple conversation with you can turn a bad day into a better one 🌈. A simple smile from you can stay in someone's mind for hours 💫. That's the kind of impact you have on people, and I hope you never forget that. 💖
+    <p>Thank you for every smile 😊, every conversation 💬, every laugh 😂, every memory 📖, and every little moment that made life feel brighter ☀️. Thank you for being yourself, because the person you are is already more special than you probably know. 💕</p>
 
-As another year of your life begins 🎉, I hope you achieve everything you've been dreaming about 🌟. I hope you find success 🏆 in the things you work hard for, peace 🕊️ during difficult times, and endless reasons to smile every day 😊. I hope life surprises you with beautiful opportunities 🌺, unforgettable memories ✨, and people who truly appreciate your worth. 💎
+    <p>You have this beautiful way of making ordinary moments feel meaningful. 🌸 A simple conversation with you can turn a bad day into a better one 🌈. A simple smile from you can stay in someone's mind for hours 💫. That's the kind of impact you have on people, and I hope you never forget that. 💖</p>
 
-Most importantly, I hope you always believe in yourself 🌻 as much as the people who care about you believe in you. You are stronger than you think 💪, kinder than you realize 🤍, and more amazing than you give yourself credit for. 🌟
+    <p>As another year of your life begins 🎉, I hope you achieve everything you've been dreaming about 🌟. I hope you find success 🏆 in the things you work hard for, peace 🕊️ during difficult times, and endless reasons to smile every day 😊. I hope life surprises you with beautiful opportunities 🌺, unforgettable memories ✨, and people who truly appreciate your worth. 💎</p>
 
-If there is one thing I want you to remember today, it's this: ❤️
+    <p>Most importantly, I hope you always believe in yourself 🌻 as much as the people who care about you believe in you. You are stronger than you think 💪, kinder than you realize 🤍, and more amazing than you give yourself credit for. 🌟</p>
 
-**You matter.** 🌹
-Your presence matters. ✨
-Your happiness matters. 🌈
-And the way you make people feel matters. 💖
+    <div class="wish">
+      <p>If there is one thing I want you to remember today, it's this: ❤️</p>
+      <p><strong>You matter.</strong> 🌹<br>
+      Your presence matters. ✨<br>
+      Your happiness matters. 🌈<br>
+      And the way you make people feel matters. 💖</p>
+    </div>
 
-No matter how many birthdays come and go 🎂, I hope you always remember how special you truly are. 💕 The world is a better place with you in it 🌍✨, and I feel lucky to have had the chance to know you, laugh with you, and create memories with you. 🥰
+    <p>No matter how many birthdays come and go 🎂, I hope you always remember how special you truly are. 💕 The world is a better place with you in it 🌍✨, and I feel lucky to have had the chance to know you, laugh with you, and create memories with you. 🥰</p>
 
-So here's to you 🥂, to your dreams 🌠, your happiness 😊, your future 💫, and all the wonderful moments waiting for you ahead. 🌸
+    <p>So here's to you 🥂, to your dreams 🌠, your happiness 😊, your future 💫, and all the wonderful moments waiting for you ahead. 🌸</p>
 
-May this year be filled with endless smiles 😊, beautiful surprises 🎁, late-night laughs 🌙😂, unforgettable adventures ✈️, and all the love and happiness your heart can hold. ❤️✨
+    <p>May this year be filled with endless smiles 😊, beautiful surprises 🎁, late-night laughs 🌙😂, unforgettable adventures ✈️, and all the love and happiness your heart can hold. ❤️✨</p>
 
-And if there is one wish I have today, it's that whenever life gets difficult, you never forget how incredible you are. 🌷 Because no matter what happens, you'll always be someone truly special. 💖
+    <p>And if there is one wish I have today, it's that whenever life gets difficult, you never forget how incredible you are. 🌷 Because no matter what happens, you'll always be someone truly special. 💖</p>
 
-Happy Birthday once again, my favorite person. ❤️🎂✨
+    <p>Happy Birthday once again, my favorite person. ❤️🎂✨</p>
 
-And if this little website manages to make you smile even for a few minutes 😊, then it has already done exactly what it was meant to do—because seeing you happy will always be one of my favorite things. ❤️🌹✨
+    <p>And if this little website manages to make you smile even for a few minutes 😊, then it has already done exactly what it was meant to do, because seeing you happy will always be one of my favorite things. ❤️🌹✨</p>
+  </div>
 
+  <div class="signature">
+    Forever Yours,<br>
+    Sanskar ❤️
+  </div>
 
-
-</div>
-
-<div class="signature">
-
-Forever Yours,
-
-<br>
-
-Sanskar ❤️
-
-</div>
-
-<button class="nextBtn"
-onclick="location.href='final.html'">
-
-One Last Thing ❤️
-
-</button>
-
-</div>
+  <button class="nextBtn" onclick="location.href='final.html'">
+    One Last Thing ❤️
+  </button>
+</main>
 
 <script>
+const icons = ["✨", "💖", "🌸", "💕", "🎀", "🌷", "💫", "⭐", "💝"];
 
-for(let i=0;i<140;i++){
-
-let item=document.createElement("div");
-
-item.className="float";
-
-const icons=["✨","💖","🌸","🦋","💕","🎀","🌷"];
-
-item.innerHTML=
-icons[Math.floor(Math.random()*icons.length)];
-
-item.style.left=
-Math.random()*100+"%";
-
-item.style.animationDuration=
-(8+Math.random()*10)+"s";
-
-document.body.appendChild(item);
-
+for (let i = 0; i < 120; i++) {
+  const item = document.createElement("div");
+  item.className = "float";
+  item.textContent = icons[Math.floor(Math.random() * icons.length)];
+  item.style.left = Math.random() * 100 + "%";
+  item.style.fontSize = 15 + Math.random() * 24 + "px";
+  item.style.animationDuration = 9 + Math.random() * 12 + "s";
+  item.style.animationDelay = Math.random() * 10 + "s";
+  item.style.setProperty("--drift", (Math.random() * 180 - 90) + "px");
+  document.body.appendChild(item);
 }
 
+for (let i = 0; i < 9; i++) {
+  const butterfly = document.createElement("div");
+  butterfly.className = "butterfly";
+  butterfly.textContent = "🦋";
+  butterfly.style.top = Math.random() * 85 + "vh";
+  butterfly.style.animationDuration = 12 + Math.random() * 10 + "s";
+  butterfly.style.animationDelay = Math.random() * 12 + "s";
+  document.body.appendChild(butterfly);
+}
+
+for (let i = 0; i < 18; i++) {
+  const glow = document.createElement("div");
+  glow.className = "heart-glow";
+  glow.style.left = Math.random() * 100 + "%";
+  glow.style.top = Math.random() * 100 + "%";
+  glow.style.animationDelay = Math.random() * 4 + "s";
+  document.body.appendChild(glow);
+}
 </script>
 
 </body>
