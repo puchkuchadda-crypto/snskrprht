@@ -72,12 +72,12 @@ body{
 .begin-btn:hover{ border-color: rgba(245,200,66,.9); color: var(--star); box-shadow: 0 0 60px rgba(245,200,66,.22), inset 0 0 30px rgba(245,200,66,.1); }
 .begin-btn:hover::before{ opacity:1; }
 
-/* STAR REVEAL — shortened to 500ms */
+/* STAR REVEAL */
 #starReveal{ position: fixed; inset: 0; z-index: 500; background: var(--night); pointer-events: none; opacity: 0; display: none; }
 #starReveal.active{ display: block; animation: revealBurst .5s ease forwards; }
 @keyframes revealBurst{ 0%{ opacity:1; } 100%{ opacity:0; } }
 
-/* GAME SCREEN — fixed+centered so it never overflows */
+/* GAME SCREEN */
 #gameScreen{
   position: fixed; inset: 0; z-index: 10;
   display: none; flex-direction: column; align-items: center; justify-content: center;
@@ -92,7 +92,7 @@ body{
 .prog-fill::after{ content: "✦"; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--gold); filter: drop-shadow(0 0 6px var(--gold)); animation: starSpin 3s linear infinite; }
 @keyframes starSpin{ to{ transform: translateY(-50%) rotate(360deg); } }
 
-/* LANTERN GRID — clamped so all 20 always fit on screen */
+/* LANTERN GRID */
 #lanternGrid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -103,7 +103,6 @@ body{
 }
 
 .lantern{
-  /* height derived from viewport: 5 rows, minus top bar, minus padding */
   height: calc((100vh - 100px) / 5 - clamp(5px, 1.2vw, 14px));
   max-height: 140px;
   border-radius: 50% 50% 46% 46% / 40% 40% 60% 60%;
@@ -162,7 +161,7 @@ body{
 .scroll-cursor{ display:inline-block; width:1.5px; height:1em; background:#a07030; margin-left:1px; vertical-align:middle; animation: inkBlink .7s steps(1) infinite; }
 @keyframes inkBlink{ 0%,100%{opacity:1;} 50%{opacity:0;} }
 .scroll-deco{ text-align:center; font-size:1.3rem; margin-top:14px; color:#c9973a; letter-spacing:.4em; opacity:.6; }
-.scroll-btn{ display:block; margin:22px auto 0; padding:13px 40px; background: linear-gradient(135deg,#f5c842,#c9973a); border:none; border-radius:999px; font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:#2a1800; cursor:none; letter-spacing:.08em; box-shadow: 0 8px 28px rgba(200,150,40,.35); transition:transform .25s, box-shadow .25s; position:relative; overflow:hidden; z-index:1; }
+.scroll-btn{ display:block; margin:22px auto 0; padding:13px 40px; background: linear-gradient(135deg,#f5c842,#c9973a); border:none; border-radius:999px; font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:#2a1800; cursor:none; letter-spacing:.08em; box-shadow: 0 8px 28px rgba(200,150,40,.35); transition:transform .25s, box-shadow .25s, opacity .4s .1s, transform .4s .1s; position:relative; overflow:hidden; z-index:1; }
 .scroll-btn::before{ content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent); transform:translateX(-100%); transition:transform .5s ease; }
 .scroll-btn:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(200,150,40,.5); }
 .scroll-btn:hover::before{ transform:translateX(100%); }
@@ -177,6 +176,20 @@ body{
 .final-title{ font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,9vw,5.5rem); font-weight:600; background:linear-gradient(135deg,var(--gold),var(--rose),var(--lilac),var(--gold)); background-size:300%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shimmerText 4s linear infinite; line-height:1.1; margin-bottom:14px; }
 @keyframes shimmerText{ 0%{background-position:0%} 100%{background-position:300%} }
 .final-msg{ font-family:'IM Fell English',serif; font-style:italic; font-size:clamp(1.1rem,3vw,1.5rem); color:var(--rose); opacity:.9; max-width:480px; line-height:1.7; }
+.celebration-btn{
+  margin-top: 36px; padding: 16px 52px; background: linear-gradient(135deg, #f5c842, #ff6b9d, #d4b0ff);
+  background-size: 200%; border: none; border-radius: 999px;
+  font-family:'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600;
+  color: #1a0a00; cursor: none; letter-spacing: .1em;
+  box-shadow: 0 8px 40px rgba(245,200,66,.35), 0 0 60px rgba(255,107,157,.2);
+  animation: btnShimmer 3s ease infinite, btnFloat 2.5s ease-in-out infinite;
+  transition: box-shadow .25s;
+}
+.celebration-btn:hover{
+  box-shadow: 0 16px 60px rgba(245,200,66,.5), 0 0 80px rgba(255,107,157,.35);
+}
+@keyframes btnShimmer{ 0%{background-position:0%} 100%{background-position:200%} }
+@keyframes btnFloat{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
 
 /* CURSOR */
 #cursorStar{ position:fixed; top:0; left:0; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); font-size:18px; filter:drop-shadow(0 0 8px rgba(245,200,66,.8)) drop-shadow(0 0 16px rgba(245,200,66,.4)); transition:transform .08s; }
@@ -191,7 +204,7 @@ body{
   #lanternGrid{ gap:6px; }
   body{ cursor:auto; }
   #cursorStar,#cursorGlow{ display:none; }
-  .begin-btn,.scroll-btn,.lantern{ cursor:pointer; }
+  .begin-btn,.scroll-btn,.lantern,.celebration-btn{ cursor:pointer; }
 }
 </style>
 </head>
@@ -242,6 +255,7 @@ body{
     <span class="final-emoji">✨💖✨</span>
     <h2 class="final-title">Happy Birthday,<br>My Love</h2>
     <p class="final-msg">Every star in the sky tonight is a wish for your happiness. You are my favourite magic in the whole universe. 💫</p>
+    <button class="celebration-btn" onclick="window.location.href='celebration.html'">Continue the Celebration ✨</button>
   </div>
 </div>
 
@@ -330,7 +344,7 @@ function buildGrid(){
   }
 }
 
-/* FIX 1 — BEGIN: no delay, show game instantly, flash is purely cosmetic */
+/* BEGIN */
 function beginJourney(){
   document.getElementById("titleScreen").style.display="none";
   buildGrid();
@@ -384,15 +398,18 @@ function showScroll(idx){
   document.getElementById("scrollNum").textContent=`✦ ${romanNumerals[idx]} ✦`;
   document.getElementById("scrollTitle").textContent=data.title;
   document.getElementById("scrollText").textContent="";
-  const isLast=idx===19;
+
+  const isLast=(idx===19);
   const btn=document.getElementById("scrollBtn");
-  btn.textContent=isLast?"Release the final lantern 🌙":"Light the next lantern ✦";
-  btn.style.opacity="0"; btn.style.transform="translateY(10px)";
-  btn.style.transition="opacity .4s .1s, transform .4s .1s";
+  btn.textContent=isLast ? "Finish the journey 🌙" : "Light the next lantern ✦";
+  btn.style.opacity="0";
+  btn.style.transform="translateY(10px)";
+
   const overlay=document.getElementById("scrollOverlay");
   overlay.classList.add("active");
   const paper=document.getElementById("scrollPaper");
   paper.style.animation="none"; void paper.offsetWidth; paper.style.animation="";
+
   setTimeout(()=>{
     typewrite(document.getElementById("scrollText"),data.text,32,()=>{
       btn.style.opacity="1"; btn.style.transform="translateY(0)";
@@ -409,22 +426,41 @@ function typewrite(el,text,speed,cb){
   tick();
 }
 
-/* NEXT */
+/* ── FIXED nextLantern ── */
 function nextLantern(){
   document.getElementById("scrollOverlay").classList.remove("active");
-  popping=false;
-  if(current===19){ setTimeout(()=>showFinal(),300); return; }
-  current++;
-  const prev=document.getElementById("lantern-"+(current-1));
-  if(prev){ prev.style.opacity=".12"; prev.style.filter="grayscale(.7)"; }
-  const next=document.getElementById("lantern-"+current);
-  if(next){
-    next.style.opacity="1"; next.style.filter="";
-    const r=next.getBoundingClientRect();
-    setTimeout(()=>{ burstSparks(r.left+r.width/2,r.top+r.height/2,"#f5c842"); next.addEventListener("click",()=>tapLantern(next,current)); },200);
+  popping = false;
+
+  // If we just finished the LAST lantern (index 19), go to final screen
+  if(current === 19){
+    setTimeout(()=>showFinal(), 300);
+    return;
   }
-  document.getElementById("progLabel").textContent=`Lantern ${current+1} of 20`;
-  document.getElementById("progFill").style.width=((current+1)/20*100)+"%";
+
+  // Dim the lantern we just popped
+  const prev = document.getElementById("lantern-" + current);
+  if(prev){ prev.style.opacity=".12"; prev.style.filter="grayscale(.7)"; }
+
+  // Advance to the next lantern
+  current++;
+
+  // Activate the next lantern
+  const next = document.getElementById("lantern-" + current);
+  if(next){
+    next.style.opacity = "1";
+    next.style.filter = "";
+    // Add click listener once
+    next.addEventListener("click", ()=>tapLantern(next, current), { once: true });
+    // Burst sparks to draw attention
+    setTimeout(()=>{
+      const r = next.getBoundingClientRect();
+      burstSparks(r.left+r.width/2, r.top+r.height/2, "#f5c842");
+    }, 200);
+  }
+
+  // Update progress bar
+  document.getElementById("progLabel").textContent = `Lantern ${current+1} of 20`;
+  document.getElementById("progFill").style.width = ((current+1)/20*100)+"%";
 }
 
 /* FINAL */
@@ -453,7 +489,7 @@ document.addEventListener("mousemove",e=>{
   }
 });
 (function animGlow(){ gx+=(mx-gx)*.12; gy+=(my-gy)*.12; cGlow.style.left=gx+"px"; cGlow.style.top=gy+"px"; requestAnimationFrame(animGlow); })();
-document.querySelectorAll(".begin-btn,.scroll-btn,.lantern").forEach(el=>{
+document.querySelectorAll(".begin-btn,.scroll-btn,.lantern,.celebration-btn").forEach(el=>{
   el.addEventListener("mouseenter",()=>{ cStar.style.transform="translate(-50%,-50%) scale(1.8)"; cStar.style.filter="drop-shadow(0 0 14px rgba(245,200,66,1))"; });
   el.addEventListener("mouseleave",()=>{ cStar.style.transform="translate(-50%,-50%) scale(1)"; cStar.style.filter="drop-shadow(0 0 8px rgba(245,200,66,.8))"; });
 });
